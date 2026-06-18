@@ -1,0 +1,1955 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, sans-serif;
+  background-color: #fdfdfd;
+  color: #333333;
+}
+
+.site-header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 40px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  z-index: 1000;
+}
+
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  z-index: 1001;
+}
+
+.logo-img {
+  max-height: 55px;
+  width: auto;
+  display: block;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  color: #333333;
+  padding: 8px;
+  z-index: 1001;
+}
+
+.menu-toggle svg {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #333333;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
+}
+
+.main-nav a:hover {
+  color: #ff6b00;
+}
+
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.phone-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.phone-icon {
+  width: 18px;
+  height: 18px;
+  color: #ff6b00;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.phone-number {
+  text-decoration: none;
+  color: #000000;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.2px;
+}
+
+.cta-button {
+  background-color: #ff6b00;
+  color: #ffffff;
+  border: none;
+  padding: 8px 22px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition:
+    background-color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.cta-button:hover {
+  background-color: #e65c00;
+}
+
+.cta-button:active {
+  transform: scale(0.98);
+}
+
+.btn-icon {
+  width: 16px;
+  height: 16px;
+  color: #ffffff;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+@media (max-width: 1100px) {
+  .site-header {
+    padding: 15px 20px;
+  }
+  .main-nav ul {
+    gap: 16px;
+  }
+}
+
+@media (max-width: 950px) {
+  .menu-toggle {
+    display: block;
+    order: 3;
+  }
+
+  .contact-section {
+    order: 2;
+    margin-left: auto;
+    margin-right: 15px;
+  }
+
+  .main-nav {
+    display: block;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.05);
+    border-top: 1px solid #eeeeee;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition:
+      max-height 0.4s ease,
+      opacity 0.3s ease;
+  }
+
+  .main-nav.active {
+    max-height: 400px;
+    opacity: 1;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    padding: 20px;
+    gap: 0;
+  }
+
+  .main-nav li a {
+    display: block;
+    padding: 12px 10px;
+    font-size: 16px;
+    border-bottom: 1px solid #f9f9f9;
+  }
+
+  .main-nav li:last-child a {
+    border-bottom: none;
+  }
+
+  .menu-toggle.active .line-main {
+    opacity: 0;
+  }
+
+  .menu-toggle.active .line-top {
+    transform: translateY(6px) rotate(45deg);
+    transform-origin: center;
+  }
+
+  .menu-toggle.active .line-bottom {
+    transform: translateY(-6px) rotate(-45deg);
+    transform-origin: center;
+  }
+}
+
+@media (max-width: 520px) {
+  .site-header {
+    padding: 12px 15px;
+  }
+
+  .logo-img {
+    max-height: 42px;
+  }
+
+  .phone-number {
+    font-size: 14px;
+  }
+
+  .cta-button {
+    padding: 6px 14px;
+    font-size: 11px;
+    gap: 6px;
+  }
+
+  .phone-icon,
+  .btn-icon {
+    width: 14px;
+    height: 14px;
+  }
+}
+
+/* Прорывной Grid-макет: центрирует контент и выносит картинку в бесконечный правый край */
+.hero-section {
+  display: grid;
+  grid-template-columns:
+    [screen-left] 1fr
+    [content-left] minmax(0, 560px)
+    minmax(0, 840px) [content-right]
+    1fr [screen-right];
+  background-color: #fff6f0; /* Фирменный нежно-персиковый фон */
+  min-height: 620px;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Левая текстовая часть садится строго в левую границу контента */
+.hero-content {
+  grid-column: content-left;
+  padding: 60px 20px 60px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 3;
+}
+
+/* Правая картинка занимает всю правую область до конца экрана */
+.hero-photo-wrapper {
+  grid-column: 3 / screen-right;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  align-self: stretch;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center left;
+  display: block;
+}
+
+/* Сглаживание краев картинки для идеального слияния с фоном */
+.hero-image-fade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 30%;
+  background: linear-gradient(to right, #fff6f0 0%, transparent 100%);
+  z-index: 2;
+}
+
+/* Стилизация заголовков */
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 20px 0;
+}
+
+.text-black {
+  font-family: "Arial Black", "Helvetica Neue", sans-serif;
+  font-size: 54px;
+  font-weight: 900;
+  color: #1c1c1c;
+  line-height: 1.05;
+  letter-spacing: -1px;
+}
+
+.text-orange {
+  font-family: "Arial Black", "Helvetica Neue", sans-serif;
+  font-size: 50px;
+  font-weight: 900;
+  color: #ff6b00;
+  line-height: 1.05;
+  letter-spacing: -1px;
+}
+
+.text-cursive {
+  font-family: "Marck Script", "Caveat", cursive;
+  font-size: 34px;
+  color: #1c1c1c;
+  font-weight: 500;
+  margin-top: 6px;
+}
+
+.hero-subtitle {
+  font-size: 15px;
+  color: #3a3a3a;
+  line-height: 1.5;
+  margin: 0 0 35px 0;
+  max-width: 460px;
+}
+
+/* Сетка преимуществ */
+.hero-features-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 35px;
+}
+
+.hero-feature-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-feature-icon {
+  width: 32px;
+  height: 32px;
+  margin-bottom: 10px;
+}
+
+.hero-feature-item p {
+  font-size: 12px;
+  font-weight: 700;
+  color: #2c2c2c;
+  line-height: 1.3;
+  margin: 0;
+}
+
+/* Карточки (Плитки цен) */
+.offer-cards-wrapper {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 35px;
+  max-width: 540px;
+}
+
+.offer-card {
+  background: #ffffff;
+  border: 1px solid #ffe6d5;
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  gap: 14px;
+  flex: 1;
+  align-items: flex-start;
+  box-shadow: 0 4px 20px rgba(255, 107, 0, 0.02);
+}
+
+.offer-icon-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid #ff6b00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  padding: 8px;
+}
+
+.offer-icon-circle svg {
+  width: 100%;
+  height: 100%;
+}
+
+.offer-card-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.offer-card-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 4px 0;
+}
+
+.offer-card-accent {
+  font-size: 12px;
+  font-weight: 800;
+  color: #ff6b00;
+  margin-bottom: 4px;
+}
+
+.offer-card-description {
+  font-size: 11px;
+  color: #666666;
+  line-height: 1.3;
+  margin: 0 0 12px 0;
+}
+
+.offer-card-price {
+  font-size: 24px;
+  font-weight: 800;
+  color: #ff6b00;
+  margin-top: auto; /* Прижимает цену к низу карточки */
+}
+
+/* Кнопки управления */
+.hero-buttons-row {
+  display: flex;
+  gap: 16px;
+}
+
+.btn-primary {
+  background-color: #ff6b00;
+  color: #ffffff;
+  border: none;
+  border-radius: 9px;
+  padding: 15px 28px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition:
+    transform 0.1s,
+    background-color 0.2s;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-arrow-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: #ff6b00;
+  border: 1px solid #ff6b00;
+  border-radius: 9px;
+  padding: 15px 28px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 107, 0, 0.04);
+}
+
+/* Правила адаптации под планшеты и мобильные экраны (или сильный Ctrl+) */
+@media (max-width: 1024px) {
+  .hero-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+  }
+  .hero-content {
+    grid-column: 1;
+    
+  }
+  .hero-photo-wrapper {
+    grid-column: 1;
+    height: 400px;
+  }
+  .hero-image-fade {
+    width: 100%;
+    background: linear-gradient(to bottom, #fff6f0 0%, transparent 40%);
+  }
+}
+
+@media (max-width: 576px) {
+  .text-black {
+    font-size: 38px;
+  }
+  .text-orange {
+    font-size: 34px;
+  }
+  .text-cursive {
+    font-size: 26px;
+  }
+  .offer-cards-wrapper,
+  .hero-buttons-row {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-features-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .btn-primary,
+  .btn-secondary {
+    justify-content: center;
+    width: 100%;
+  }
+}
+
+
+.benefits-section,
+.classes-section,
+.schedule-section,
+.pricing-section,
+.extra-services-section,
+.reviews-section {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  
+}
+
+.section-container {
+  max-width: 100%;
+  width: 100%;
+  
+  
+}
+
+/* Sarlavha */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  
+}
+
+.section-header h2 {
+  /* Shrift o'lchamini biroz kamaytirish */
+  font-size: 22px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+.decor-icon {
+  width: 26px;
+  height: 26px;
+  color: #e56535; /* Olovrang */
+}
+
+/* Kartalar to'plami */
+.advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.advantage-card {
+  background-color: #fffaf6; /* Och sarg'ish orqa fon */
+  border-radius: 12px;
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+  
+}
+
+/* Ikonka uslubi */
+.advantage-icon {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  color: #e56535;
+}
+
+.advantage-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.selficon img {
+  width: 60px;
+  height: 60px;
+}
+.selficon img {
+  width: 60px;
+  height: 60px;
+  
+}
+
+/* Matn qismi */
+.advantage-content h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #e56535;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.advantage-content p {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #333333;
+}
+
+@media (max-width: 600px) {
+  .advantages-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/*sec2
+
+/* Общие настройки для секции */
+
+.first-time-section .onboarding-container {
+  max-width: 100%;
+  margin: auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+/* Шапка */
+.first-time-section .section-header {
+  text-align: center;
+}
+
+.first-time-section .section-title-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.first-time-section h2 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.first-time-section .header-decor-lines {
+  color: #ff7a38;
+  font-size: 18px;
+}
+
+.first-time-section .section-subtitle-text {
+  font-size: 14px;
+  color: #333;
+  margin: 8px 0 0 0;
+}
+
+/* Главный контейнер для шагов и цен */
+.first-time-section .onboarding-steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: #fffaf5; /* Легкий кремовый фон */
+  padding: 30px 25px;
+  border-radius: 12px;
+  gap: 15px;
+}
+
+/* Карточка шага */
+.first-time-section .onboarding-step {
+  display: flex;
+  gap: 15px;
+  flex: 1;
+}
+
+/* Оранжевый кружок с цифрой */
+.first-time-section .step-index {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+  border: 2px solid #ff7a38;
+  border-radius: 50%;
+  color: #ff7a38;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.first-time-section .step-body h3 {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+  margin: 0 0 8px 0;
+}
+
+.first-time-section .step-body p {
+  font-size: 13px;
+  color: #444;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Стрелочки между шагами */
+.first-time-section .step-connector {
+  display: flex;
+  align-items: center;
+  align-self: center;
+  color: #ff7a38;
+  font-size: 20px;
+  font-weight: bold;
+  user-select: none;
+  padding-bottom: 15px;
+}
+
+/* Блок с ценами */
+.first-time-section .intro-price-block {
+  flex: 1.2;
+  padding-left: 15px;
+}
+
+.first-time-section .intro-price-block h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: #222;
+  margin: 0 0 12px 0;
+}
+
+.first-time-section .intro-price-line {
+  display: flex;
+  align-items: baseline;
+  
+  font-size: 14px;
+}
+
+.first-time-section .intro-price-name {
+  font-weight: 700;
+  color: #111;
+  white-space: nowrap;
+}
+
+/* Точечная линия как в меню */
+.first-time-section .price-dot-line {
+  flex-grow: 1;
+  border-bottom: 1px dotted #ccc;
+  margin: 0 8px;
+}
+
+.first-time-section .intro-price-value {
+  font-weight: 700;
+  color: #ff7a38;
+  white-space: nowrap;
+}
+
+/* Адаптивность для мобилок */
+@media (max-width: 992px) {
+  .first-time-section .onboarding-steps {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .first-time-section .step-connector {
+    transform: rotate(90deg);
+    align-self: flex-start;
+    margin-left: 10px;
+    padding: 0;
+  }
+
+  .first-time-section .intro-price-block {
+    padding-left: 0;
+    border-top: 1px dashed #ffd1b3;
+    padding-top: 20px;
+    width: 100%;
+  }
+}
+.step-arrow-icon {
+  width: 20px;
+  height: 20px;
+  color: #ff7a38;
+  fill: currentColor;
+}
+
+.section-intro-text {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-size: 14px;
+  color: #333333;
+}
+.intro-price-block {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.intro-price-line {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.price-separator-icon {
+  width: 12px;
+  height: 12px;
+  color: #000;
+  transform: translateY(2px); /* чуть ниже */
+}
+
+.price-name,
+.promo-days-label,
+.price-value {
+  font-size: 16px;
+}
+
+/*sec31
+
+/* ── Card ── */
+.card {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+/* Photo placeholder */
+.direction-card-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: #ede8e3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+.direction-card-image svg {
+  width: 48px;
+  height: 48px;
+  opacity: 0.35;
+}
+
+/* Card body */
+.card-body {
+  padding: 14px 16px 16px;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 7px;
+}
+
+/* Icon circle */
+.direction-card-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #fff2ea;
+  border: 1.5px solid #f47c2f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.direction-card-icon svg {
+  width: 14px;
+  height: 14px;
+  color: #f47c2f;
+  fill: none;
+  stroke: #f47c2f;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.direction-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.25;
+}
+
+.card-desc {
+  font-size: 12.5px;
+  color: #6b6b6b;
+  line-height: 1.5;
+}
+
+/* ==========================================
+   БЛОК: НАПРАВЛЕНИЯ (SCROLL QILINADIGAN HOLAT)
+   ========================================== */
+.directions-section {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.directions-list {
+  display: flex; 
+  gap: 24px;
+  width: 100%;
+  overflow-x: auto; 
+  padding-bottom: 20px; 
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory; 
+}
+
+.directions-list::-webkit-scrollbar {
+  height: 8px; 
+}
+.directions-list::-webkit-scrollbar-track {
+  background: #fffaf5; 
+  border-radius: 10px;
+}
+.directions-list::-webkit-scrollbar-thumb {
+  background: #f27235; 
+  border-radius: 10px;
+}
+.directions-list::-webkit-scrollbar-thumb:hover {
+  background: #d95e22; 
+}
+
+/*sec4
+/* Базовые стили для секции */
+.schedule-section {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.section-container {
+  width: 100%;
+}
+
+/* Стилизация заголовка со стрелочками SVG */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  
+}
+
+.section-header h2 {
+  font-size: 26px;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin: 0;
+  text-transform: none;
+}
+
+.decor-icon {
+  width: 24px;
+  height: 24px;
+  color: #f27235; /* Фирменный оранжевый цвет стрелочек */
+}
+
+/* Сетка расписания */
+.timetable-grid {
+  display: grid;
+  /* 1 колонка под время, 7 колонок под дни недели */
+  grid-template-columns: 55px repeat(7, 1fr);
+  /* 1 строка для дней недели + 4 строки под фиксированные часы будней */
+  grid-template-rows: auto repeat(4, minmax(115px, auto));
+  background-color: #fffaf5; /* Кремовая фирменная подложка */
+  border-radius: 16px;
+  padding: 12px;
+  gap: 4px;
+}
+
+/* Дни недели */
+.timetable-header {
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: #1a1a1a;
+  padding: 10px 2px;
+}
+
+.timetable-header.time-col {
+  visibility: hidden; /* Оставляем пустой верхний левый угол */
+}
+
+/* Столбец времени */
+.timetable-time {
+  grid-column: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: #2c2c2c;
+}
+
+/* Карточки для будних дней */
+.timetable-cell {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border: 1px solid rgba(242, 114, 53, 0.04);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+}
+
+/* Шрифты внутри карточек */
+.class-title {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 6px;
+}
+
+.class-title.orange {
+  color: #f27235;
+} /* Оранжевый текст */
+.class-title.dark {
+  color: #1a1a1a;
+} /* Темный текст */
+.class-title.italic {
+  font-style: italic;
+}
+
+.class-title small {
+  display: block;
+  font-weight: normal;
+  color: #666;
+  font-size: 11px;
+  margin-top: 2px;
+}
+
+.class-trainer {
+  font-size: 12px;
+  color: #666666;
+}
+
+/* Контейнеры субботы и воскресенья */
+.weekend-column {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 100%;
+}
+
+/* Карточки внутри выходных дней */
+.weekend-slot {
+  
+  border-radius: 8px;
+  padding: 10px;
+  flex: 1;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  border: 1px solid rgba(242, 114, 53, 0.04);
+}
+
+.weekend-slot-time {
+  font-size: 12px;
+  font-weight: bold;
+  color: #2c2c2c;
+  min-width: 35px;
+}
+
+.weekend-slot > div {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* Предотвращение деформации на экранах чуть ниже 1200px */
+@media (max-width: 1200px) {
+  .timetable-grid {
+    overflow-x: auto;
+  }
+  .timetable-header,
+  .timetable-cell,
+  .weekend-slot {
+    min-width: 130px;
+  }
+}
+/*sec5
+/* Общие настройки секции цен */
+.pricing-section {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 40px 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* Шапка со стрелочками */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  
+}
+.section-header h2 {
+  font-size: 26px;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin: 0;
+}
+.decor-icon {
+  width: 24px;
+  height: 24px;
+  color: #f27235;
+}
+
+/* Сетка основных тарифов верхнего ряда */
+.subscription-grid {
+  display: grid;
+  /* 5 равных колонок + 1 широкая текстовая колонка */
+  grid-template-columns: repeat(5, 1fr) 1.3fr;
+  gap: 12px;
+  align-items: stretch;
+  margin-bottom: 25px;
+  
+}
+
+/* Стили карточки верхнего ряда */
+.subscription-card {
+  background: #ffffff;
+  border: 1px solid #f2eedf;
+  border-radius: 12px;
+  padding: 15px 10px 20px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+  position: relative;
+}
+
+/* Бейджи сверху карточек */
+.subscription-card-badge-placeholder {
+  height: 18px; /* Пространство для выравнивания бесбейджных карт */
+  margin-bottom: 12px;
+}
+.subscription-card-badge {
+  font-size: 9px;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 20px;
+  margin-bottom: 12px;
+  white-space: nowrap;
+}
+.subscription-card-badge.orange {
+  background-color: #f27235;
+}
+.subscription-card-badge.blue {
+  background-color: #2b5cb3;
+}
+
+.subscription-card-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 4px;
+}
+.subscription-card-title span {
+  display: block;
+  font-size: 14px;
+}
+.subscription-card-subtitle {
+  font-size: 11px;
+  color: #777777;
+  margin-bottom: 18px;
+}
+.subscription-card-price {
+  font-size: 22px;
+  font-weight: 800;
+  color: #f27235;
+  margin-top: auto; /* Прижимает цену вниз */
+  margin-bottom: 15px;
+}
+
+/* Кнопка "Выбрать" */
+.btn-select {
+  width: 85%;
+  background: transparent;
+  color: #f27235;
+  border: 1px solid #f27235;
+  padding: 8px 0;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn-select:hover {
+  background: #f27235;
+  color: #ffffff;
+}
+
+/* Правый блок с сердцем */
+.subscription-helper-card {
+  background-color: #fffaf5;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 20px;
+  height: 180px;
+  align-self: center;
+}
+.helper-heart-icon {
+  width: 36px;
+  height: 36px;
+  color: #f27235;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.helper-heart-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.subscription-helper-card p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #2c2c2c;
+  margin: 0;
+  font-weight: 700;
+}
+
+/* Текст-разделитель по центру */
+.pricing-divider-text {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+/* Нижняя панель деталей / Табы */
+.pricing-tabs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #ede0d4;
+  width: 100%;
+  gap: 10px;
+}
+
+/* ЛЕВАЯ ЧАСТЬ — 3 колонки */
+.pricing-left {
+  flex: 3;
+  border-right: 2px solid #ede0d4;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+}
+
+/* Шапка с тремя табами */
+.pricing-tabs-nav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: #f5ece3;
+  border-bottom: 1px solid #ede0d4;
+}
+
+.pricing-tab {
+  text-align: center;
+  padding: 11px 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #888888;
+  cursor: pointer;
+  border-right: 1px solid #ede0d4;
+  background-color: #f5ece3;
+}
+.pricing-tab:last-child {
+  border-right: none;
+}
+
+/* Первый таб — активный, выделен оранжевым фоном */
+.pricing-tab.tab-active {
+  background-color: #ffffff;
+  color: #f27235;
+  border-bottom: 1px solid #ffffff;
+  margin-bottom: -1px;
+}
+
+/* Три колонки с ценами */
+.pricing-content-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  
+}
+
+/* ПРАВАЯ ЧАСТЬ — льготные */
+.pricing-right {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  background-color: #fffaf5;
+  border-radius: 12px;
+  
+}
+
+.pricing-right-header {
+  background-color: #f5ece3;
+  padding: 11px 8px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #888888;
+  border-bottom: 1px solid #ede0d4;
+}
+
+.pricing-right-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  flex: 1;
+  border-top: none;
+}
+
+/* Общий блок цен */
+.pricing-block {
+  background: #ffffff;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  min-height: 160px;
+width: 300px;
+}
+.pricing-block1 {
+  background: #ffffff;
+  padding: 14px 12px;
+  display: flex;
+  flex-direction: column;
+  min-height: 160px;
+width: 414px;
+}
+
+/* Первая колонка — без левой границы */
+.pricing-col-first {
+  border-right: 1px solid #ede0d4;
+}
+
+.pricing-block-bordered {
+  border-right: 1px solid #ede0d4;
+}
+
+.pricing-block.special-bg {
+  background-color: #fffaf5;
+  border-right: 1px solid #ede0d4;
+}
+.pricing-block.special-bg:last-child {
+  border-right: none;
+}
+
+.pricing-block-description {
+  font-size: 11px;
+  color: #888888;
+  margin-bottom: 10px;
+  line-height: 1.35;
+    min-height: 42px;
+}
+
+.pricing-block-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.price-list {
+  display: flex;
+  justify-content: space-around;
+  gap: 4px;
+   
+}
+
+.price-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+}
+
+.price-item span {
+  font-size: 10px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 5px;
+  line-height: 1.2;
+}
+
+.price-item strong {
+  font-size: 13px;
+  color: #f27235;
+  font-weight: 800;
+}
+
+.pricing-block-note {
+  font-size: 9.5px;
+  color: #888888;
+  line-height: 1.3;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+/* Нижний мелкий текст сноски */
+.pricing-footnote {
+  text-align: center;
+  font-size: 11px;
+  color: #777777;
+  margin-top: 20px;
+}
+
+/* Адаптивность для планшетов */
+@media (max-width: 1024px) {
+  .subscription-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .pricing-content-grid {
+    display: flex;
+    
+  }
+}
+/*sec6
+/* Общие стили секций */
+.benefits-section,
+.classes-section,
+.schedule-section,
+.pricing-section,
+.extra-services-section,
+.reviews-section {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+.section-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+/* Стилизация заголовков со стрелочками */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.section-header h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin: 0;
+}
+.decor-icon {
+  width: 22px;
+  height: 22px;
+  color: #f27235; /* Фирменный оранжевый */
+}
+
+/* ==========================================
+   БЛОК: ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ 
+   ========================================== */
+.extra-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.extra-service-card {
+  background-color: #fffaf5; /* Легкая кремовая подложка */
+  border-radius: 14px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border: 1px solid rgba(242, 114, 53, 0.03);
+}
+
+.extra-service-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  color: #f27235;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.extra-service-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.extra-service-body h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #f27235;
+  margin: 0 0 6px 0;
+}
+.extra-service-body p {
+  font-size: 13px;
+  color: #555555;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ==========================================
+   БЛОК: ОТЗЫВЫ 
+   ========================================== */
+.reviews-slider {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  position: relative;
+}
+
+/* Сетка отзывов (3 штуки в ряд) */
+.reviews-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  flex: 1;
+}
+
+.review-item {
+  background: #ffffff;
+  border: 1px solid #f2eedf;
+  border-radius: 12px;
+  padding: 24px 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.01);
+}
+
+/* Круглый аватар пользователя */
+.reviewer-avatar {
+  width: 70px;
+  height: 70px;
+  min-width: 70px;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Если решишь вставить настоящую картинку, этот стиль сработает автоматически */
+.reviewer-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.reviewer-avatar svg {
+  width: 80%;
+  height: 80%;
+}
+
+.reviewer-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.reviewer-name {
+  font-size: 15px;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 2px;
+}
+
+.reviewer-rating {
+  color: #f27235; /* Оранжевые звездочки */
+  font-size: 14px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.reviewer-comment {
+  font-size: 13px;
+  color: #444444;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* Круглые кнопочки-стрелки слайдера */
+.slider-nav-btn {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: 50%;
+  border: 1px solid #1a1a1a;
+  background: #ffffff;
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0;
+}
+.slider-nav-btn:hover {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+.slider-nav-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ==========================================
+   АДАПТИВНОСТЬ 
+   ========================================== */
+@media (max-width: 992px) {
+  .extra-services-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .reviews-list {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  /* На мобильных скрываем стрелочки, если отзывы выстраиваются в один вертикальный ряд */
+  .slider-nav-btn {
+    display: none;
+  }
+}
+
+.hhhhh{
+  margin-bottom: 10px;
+}
+/* pricing-block1 removed - unified into .pricing-block */
+
+/* Подключаем похожий округлый шрифт (по желанию) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+.badge-new {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background-color: #f27235;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  z-index: 2;
+  letter-spacing: 0.5px;
+}
+
+.fitness-card {
+  min-width: 280px; 
+  flex: 0 0 auto; 
+  scroll-snap-align: start; 
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #f0f0f0;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fitness-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Блок для главного изображения */
+.card-image-placeholder {
+  width: 100%;
+  height: 160px;
+  background-color: #f7e6db; /* Фоновый оттенок в стиле оригинала */
+  position: relative;
+}
+
+/* Если будете вставлять реальную картинку, она идеально впишется: */
+.card-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Контентная часть */
+.card-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Заголовок с иконкой в одну строку */
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+/* Блок для маленькой иконки слева от заголовка */
+.card-icon-placeholder {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #e27d52; /* Оранжевый контур как на макете */
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+
+/* Описание карточки */
+.card-description {
+  margin: 0;
+  font-size: 12px;
+  color: #666666;
+  line-height: 1.4;
+}
+/* Footer Container Styles */
+.site-footer {
+  background: #fffaf5;
+  border-top: 1px solid #f0e3d6;
+  margin-top: 60px;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: 250px 320px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.footer-logo img {
+  max-width: 220px;
+  width: 100%;
+}
+
+/* Contacts Typography & Layout */
+.footer-contacts h3 {
+  font-size: 24px;
+  margin-bottom: 25px;
+  color: #111;
+}
+
+/* New: Icon + Text Alignment */
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.contact-icon {
+  width: 24px;
+  height: 24px;
+  color: #f27235; /* Orange theme color */
+  flex-shrink: 0;
+  margin-top: 4px; /* Optically aligns icon with the first line of text */
+}
+
+.contact-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.footer-phone {
+  display: block;
+  text-decoration: none;
+  color: #111;
+  font-size: 24px;
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.footer-phone:hover {
+  color: #f27235;
+}
+
+.footer-address {
+  color: #555;
+  line-height: 1.6;
+  margin: 0; /* Reset margin since .contact-item handles spacing */
+  font-size: 15px;
+}
+
+/* Social Buttons Row */
+.footer-socials {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+/* New: Styled Circular Buttons for Socials */
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background-color: #fce8db; /* Light orange background */
+  color: #f27235; /* Orange icon */
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  background-color: #f27235;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(242, 114, 53, 0.3);
+}
+
+.social-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.footer-map {
+  height: 260px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.footer-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.footer-bottom {
+  border-top: 1px solid #f0e3d6;
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-size: 14px;
+  background-color: #fffaf5; 
+}
+
+@media (max-width: 992px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .footer-logo {
+    text-align: center;
+  }
+  
+  .footer-logo img {
+    margin: 0 auto;
+  }
+
+  .footer-contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .contact-icon {
+    margin-top: 0;
+  }
+
+  .footer-map {
+    height: 300px;
+  }
+}
+.subscription-helper-card {
+  background-color: #fffaf5;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  height: 180px;
+}
+.helper-heart-icon {
+  width: 36px;
+  height: 36px;
+  color: #f27235;
+  flex-shrink: 0;
+}
+.helper-heart-icon svg {
+  width: 100%;
+  height: 100%;
+}
+.subscription-helper-card p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #2c2c2c;
+  margin: 0;
+  font-weight: 700;
+  white-space: nowrap; /* qator ichida wrap bo'lib ketmasligi uchun */
+}
