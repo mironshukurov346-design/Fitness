@@ -484,7 +484,6 @@ body {
   }
   .hero-content {
     grid-column: 1;
-    
   }
   .hero-photo-wrapper {
     grid-column: 1;
@@ -523,7 +522,6 @@ body {
   }
 }
 
-
 .benefits-section,
 .classes-section,
 .schedule-section,
@@ -534,14 +532,11 @@ body {
   justify-content: center;
   width: 100%;
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  
 }
 
 .section-container {
   max-width: 100%;
   width: 100%;
-  
-  
 }
 
 /* Sarlavha */
@@ -550,7 +545,6 @@ body {
   align-items: center;
   justify-content: center;
   padding: 0 20px;
-  
 }
 
 .section-header h2 {
@@ -581,7 +575,6 @@ body {
   flex-direction: row;
   align-items: flex-start;
   gap: 16px;
-  
 }
 
 /* Ikonka uslubi */
@@ -603,7 +596,6 @@ body {
 .selficon img {
   width: 60px;
   height: 60px;
-  
 }
 
 /* Matn qismi */
@@ -742,7 +734,7 @@ body {
 .first-time-section .intro-price-line {
   display: flex;
   align-items: baseline;
-  
+
   font-size: 14px;
 }
 
@@ -847,7 +839,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 
 .direction-card-image svg {
@@ -914,29 +905,15 @@ body {
 }
 
 .directions-list {
-  display: flex; 
+  display: flex;
   gap: 24px;
   width: 100%;
-  overflow-x: auto; 
-  padding-bottom: 20px; 
+  overflow-x: auto;
+  padding-bottom: 20px;
   scroll-behavior: smooth;
-  scroll-snap-type: x mandatory; 
 }
 
-.directions-list::-webkit-scrollbar {
-  height: 8px; 
-}
-.directions-list::-webkit-scrollbar-track {
-  background: #fffaf5; 
-  border-radius: 10px;
-}
-.directions-list::-webkit-scrollbar-thumb {
-  background: #f27235; 
-  border-radius: 10px;
-}
-.directions-list::-webkit-scrollbar-thumb:hover {
-  background: #d95e22; 
-}
+
 
 /*sec4
 /* Базовые стили для секции */
@@ -959,7 +936,6 @@ body {
   align-items: center;
   justify-content: center;
   gap: 15px;
-  
 }
 
 .section-header h2 {
@@ -1068,7 +1044,6 @@ body {
 
 /* Карточки внутри выходных дней */
 .weekend-slot {
-  
   border-radius: 8px;
   padding: 10px;
   flex: 1;
@@ -1119,7 +1094,6 @@ body {
   align-items: center;
   justify-content: center;
   gap: 15px;
-  
 }
 .section-header h2 {
   font-size: 26px;
@@ -1141,7 +1115,6 @@ body {
   gap: 12px;
   align-items: stretch;
   margin-bottom: 25px;
-  
 }
 
 /* Стили карточки верхнего ряда */
@@ -1316,7 +1289,6 @@ body {
 .pricing-content-3col {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  
 }
 
 /* ПРАВАЯ ЧАСТЬ — льготные */
@@ -1326,7 +1298,6 @@ body {
   flex-direction: column;
   background-color: #fffaf5;
   border-radius: 12px;
-  
 }
 
 .pricing-right-header {
@@ -1353,7 +1324,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 160px;
-width: 300px;
+  width: 300px;
 }
 .pricing-block1 {
   background: #ffffff;
@@ -1361,7 +1332,7 @@ width: 300px;
   display: flex;
   flex-direction: column;
   min-height: 160px;
-width: 414px;
+  width: 414px;
 }
 
 /* Первая колонка — без левой границы */
@@ -1386,7 +1357,7 @@ width: 414px;
   color: #888888;
   margin-bottom: 10px;
   line-height: 1.35;
-    min-height: 42px;
+  min-height: 42px;
 }
 
 .pricing-block-title {
@@ -1401,7 +1372,6 @@ width: 414px;
   display: flex;
   justify-content: space-around;
   gap: 4px;
-   
 }
 
 .price-item {
@@ -1449,7 +1419,6 @@ width: 414px;
   }
   .pricing-content-grid {
     display: flex;
-    
   }
 }
 /*sec6
@@ -1663,13 +1632,13 @@ width: 414px;
   }
 }
 
-.hhhhh{
+.hhhhh {
   margin-bottom: 10px;
 }
 /* pricing-block1 removed - unified into .pricing-block */
 
 /* Подключаем похожий округлый шрифт (по желанию) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
 .badge-new {
   position: absolute;
@@ -1687,10 +1656,10 @@ width: 414px;
 }
 
 .fitness-card {
-  min-width: 280px; 
-  flex: 0 0 auto; 
-  scroll-snap-align: start; 
-  font-family: 'Inter', sans-serif;
+  min-width: 280px;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  font-family: "Inter", sans-serif;
   background-color: #ffffff;
   border-radius: 16px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
@@ -1699,7 +1668,9 @@ width: 414px;
   flex-direction: column;
   border: 1px solid #f0f0f0;
   position: relative;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .fitness-card:hover {
@@ -1850,7 +1821,7 @@ width: 414px;
   width: 44px;
   height: 44px;
   background-color: #fce8db; /* Light orange background */
-  color: #f27235; /* Orange icon */
+  color: #f27235;
   border-radius: 50%;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -1887,7 +1858,7 @@ width: 414px;
   padding: 20px;
   color: #888;
   font-size: 14px;
-  background-color: #fffaf5; 
+  background-color: #fffaf5;
 }
 
 @media (max-width: 992px) {
@@ -1899,7 +1870,7 @@ width: 414px;
   .footer-logo {
     text-align: center;
   }
-  
+
   .footer-logo img {
     margin: 0 auto;
   }
