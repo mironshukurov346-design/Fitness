@@ -235,7 +235,6 @@ body {
   }
 }
 
-/* Прорывной Grid-макет: центрирует контент и выносит картинку в бесконечный правый край */
 .hero-section {
   display: grid;
   grid-template-columns:
@@ -243,14 +242,13 @@ body {
     [content-left] minmax(0, 560px)
     minmax(0, 840px) [content-right]
     1fr [screen-right];
-  background-color: #fff6f0; /* Фирменный нежно-персиковый фон */
+  background-color: #fff6f0;
   min-height: 620px;
   width: 100%;
   position: relative;
   overflow: hidden;
 }
 
-/* Левая текстовая часть садится строго в левую границу контента */
 .hero-content {
   grid-column: content-left;
   padding: 60px 20px 60px 0;
@@ -260,7 +258,6 @@ body {
   z-index: 3;
 }
 
-/* Правая картинка занимает всю правую область до конца экрана */
 .hero-photo-wrapper {
   grid-column: 3 / screen-right;
   height: 100%;
@@ -277,7 +274,6 @@ body {
   display: block;
 }
 
-/* Сглаживание краев картинки для идеального слияния с фоном */
 .hero-image-fade {
   position: absolute;
   top: 0;
@@ -288,7 +284,6 @@ body {
   z-index: 2;
 }
 
-/* Стилизация заголовков */
 .hero-title {
   display: flex;
   flex-direction: column;
@@ -329,7 +324,6 @@ body {
   max-width: 460px;
 }
 
-/* Сетка преимуществ */
 .hero-features-row {
   display: flex;
   gap: 24px;
@@ -357,7 +351,6 @@ body {
   margin: 0;
 }
 
-/* Карточки (Плитки цен) */
 .offer-cards-wrapper {
   display: flex;
   gap: 16px;
@@ -476,7 +469,6 @@ body {
   background-color: rgba(255, 107, 0, 0.04);
 }
 
-/* Правила адаптации под планшеты и мобильные экраны (или сильный Ctrl+) */
 @media (max-width: 1024px) {
   .hero-section {
     grid-template-columns: 1fr;
@@ -539,7 +531,6 @@ body {
   width: 100%;
 }
 
-/* Sarlavha */
 .section-header {
   display: flex;
   align-items: center;
@@ -548,7 +539,6 @@ body {
 }
 
 .section-header h2 {
-  /* Shrift o'lchamini biroz kamaytirish */
   font-size: 22px;
   font-weight: 700;
   color: #1a1a1a;
@@ -557,7 +547,7 @@ body {
 .decor-icon {
   width: 26px;
   height: 26px;
-  color: #e56535; /* Olovrang */
+  color: #e56535;
 }
 
 /* Kartalar to'plami */
@@ -913,8 +903,6 @@ body {
   scroll-behavior: smooth;
 }
 
-
-
 /*sec4
 /* Базовые стили для секции */
 .schedule-section {
@@ -949,23 +937,19 @@ body {
 .decor-icon {
   width: 24px;
   height: 24px;
-  color: #f27235; /* Фирменный оранжевый цвет стрелочек */
+  color: #f27235;
 }
 
-/* Сетка расписания */
 .timetable-grid {
   display: grid;
-  /* 1 колонка под время, 7 колонок под дни недели */
   grid-template-columns: 55px repeat(7, 1fr);
-  /* 1 строка для дней недели + 4 строки под фиксированные часы будней */
   grid-template-rows: auto repeat(4, minmax(115px, auto));
-  background-color: #fffaf5; /* Кремовая фирменная подложка */
+  background-color: #fffaf5;
   border-radius: 16px;
   padding: 12px;
   gap: 4px;
 }
 
-/* Дни недели */
 .timetable-header {
   text-align: center;
   font-weight: bold;
@@ -975,7 +959,7 @@ body {
 }
 
 .timetable-header.time-col {
-  visibility: hidden; /* Оставляем пустой верхний левый угол */
+  visibility: hidden;
 }
 
 /* Столбец времени */
@@ -1066,7 +1050,6 @@ body {
   text-align: left;
 }
 
-/* Предотвращение деформации на экранах чуть ниже 1200px */
 @media (max-width: 1200px) {
   .timetable-grid {
     overflow-x: auto;
@@ -1204,7 +1187,8 @@ body {
   justify-content: flex-start;
   text-align: left;
   gap: 20px;
-  height: 180px;
+  min-height: 180px;
+  height: auto;
   align-self: center;
 }
 .helper-heart-icon {
@@ -1324,7 +1308,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 160px;
-  width: 300px;
+  width: 100%;
 }
 .pricing-block1 {
   background: #ffffff;
@@ -1332,7 +1316,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 160px;
-  width: 414px;
+  width: 100%;
 }
 
 /* Первая колонка — без левой границы */
@@ -1465,9 +1449,6 @@ body {
   color: #f27235; /* Фирменный оранжевый */
 }
 
-/* ==========================================
-   БЛОК: ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ 
-   ========================================== */
 .extra-services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1511,9 +1492,6 @@ body {
   margin: 0;
 }
 
-/* ==========================================
-   БЛОК: ОТЗЫВЫ 
-   ========================================== */
 .reviews-slider {
   display: flex;
   align-items: center;
@@ -1552,7 +1530,7 @@ body {
   align-items: center;
   justify-content: center;
 }
-/* Если решишь вставить настоящую картинку, этот стиль сработает автоматически */
+
 .reviewer-avatar img {
   width: 100%;
   height: 100%;
@@ -1635,9 +1613,7 @@ body {
 .hhhhh {
   margin-bottom: 10px;
 }
-/* pricing-block1 removed - unified into .pricing-block */
 
-/* Подключаем похожий округлый шрифт (по желанию) */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
 
 .badge-new {
@@ -1904,7 +1880,8 @@ body {
   flex-direction: row;
   align-items: center;
   gap: 16px;
-  height: 180px;
+  min-height: 180px;
+  height: auto;
 }
 .helper-heart-icon {
   width: 36px;
@@ -1922,5 +1899,1119 @@ body {
   color: #2c2c2c;
   margin: 0;
   font-weight: 700;
-  white-space: nowrap; /* qator ichida wrap bo'lib ketmasligi uchun */
+  white-space: normal;
+}
+
+/* ============================================================
+   COMPREHENSIVE RESPONSIVE MEDIA QUERIES
+   Breakpoints: 1200px / 1024px / 768px / 576px / 400px
+   Covers ALL sections for full 320px–1920px+ support
+   ============================================================ */
+
+/* Smooth transitions for layout changes */
+.advantages-grid,
+.extra-services-grid,
+.reviews-list,
+.subscription-grid,
+.footer-container,
+.pricing-tabs,
+.pricing-content-3col,
+.pricing-right-content,
+.section-container,
+.onboarding-steps,
+.hero-content,
+.offer-cards-wrapper,
+.hero-buttons-row,
+.hero-features-row {
+  transition: all 0.3s ease;
+}
+
+/* ── DESKTOP ≤ 1200px ───────────────────────────────────── */
+@media (max-width: 1200px) {
+
+  /* Section container padding */
+  .section-container {
+    padding: 0 30px;
+  }
+
+  /* Benefits: 4 → 2 columns */
+  .advantages-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  /* Subscription grid: 6 → 3 columns */
+  .subscription-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  /* Subscription helper card spans full width on wrap */
+  .subscription-helper-card {
+    min-height: auto;
+  }
+
+  /* Pricing tabs: keep 2 columns but allow flexible widths */
+  .pricing-block,
+  .pricing-block1 {
+    min-height: 140px;
+  }
+
+  /* Footer: 3 columns with flexible sizing */
+  .footer-container {
+    grid-template-columns: 200px 1fr 1fr;
+    gap: 30px;
+    padding: 30px;
+  }
+
+  /* Timetable: horizontal scroll with min-widths */
+  .timetable-grid {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* ── TABLET LANDSCAPE ≤ 1024px ──────────────────────────── */
+@media (max-width: 1024px) {
+
+  /* Hero: stacked layout */
+  .hero-section {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    min-height: auto;
+  }
+
+  .hero-content {
+    grid-column: 1;
+    padding: 40px 30px 40px 30px;
+  }
+
+  .hero-photo-wrapper {
+    grid-column: 1;
+    height: 350px;
+  }
+
+  .hero-image-fade {
+    width: 100%;
+    height: 40%;
+    bottom: auto;
+    top: 0;
+    left: 0;
+    background: linear-gradient(to bottom, #fff6f0 0%, transparent 100%);
+  }
+
+  /* Section container */
+  .section-container {
+    padding: 0 25px;
+  }
+
+  /* Onboarding container */
+  .first-time-section .onboarding-container {
+    padding: 0 25px;
+  }
+
+  /* Subscription grid: 3 → 2 columns */
+  .subscription-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  /* Pricing tabs: stack to single column */
+  .pricing-tabs {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .pricing-left {
+    border-right: none;
+    border-bottom: 2px solid #ede0d4;
+    border-radius: 12px 12px 0 0;
+  }
+
+  .pricing-right {
+    border-radius: 0 0 12px 12px;
+  }
+
+  /* Extra services: 3 → 2 columns */
+  .extra-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  /* Reviews: 3 → 2 columns */
+  .reviews-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  /* Footer: 2 columns */
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    padding: 30px 25px;
+  }
+
+  .footer-logo {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  .footer-logo img {
+    margin: 0 auto;
+  }
+
+  /* Fitness cards: allow wrapping as grid */
+  .directions-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    overflow-x: visible;
+    padding-bottom: 0;
+  }
+
+  .fitness-card {
+    min-width: 0;
+    flex: none;
+  }
+}
+
+/* ── TABLET PORTRAIT ≤ 768px ────────────────────────────── */
+@media (max-width: 768px) {
+
+  /* Section padding reduced */
+  .section-container {
+    padding: 0 20px;
+  }
+
+  /* Section headers */
+  .section-header h2 {
+    font-size: 20px;
+  }
+
+  .decor-icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Hero content */
+  .hero-content {
+    padding: 30px 20px;
+  }
+
+  .hero-photo-wrapper {
+    height: 300px;
+  }
+
+  .text-black {
+    font-size: 42px;
+  }
+
+  .text-orange {
+    font-size: 38px;
+  }
+
+  .text-cursive {
+    font-size: 28px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+    max-width: 100%;
+  }
+
+  /* Offer cards */
+  .offer-cards-wrapper {
+    max-width: 100%;
+  }
+
+  .offer-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  /* Benefits grid stays 2 columns */
+  .advantages-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .advantage-card {
+    padding: 18px 16px;
+    gap: 12px;
+  }
+
+  /* Onboarding */
+  .first-time-section .onboarding-container {
+    padding: 0 20px;
+  }
+
+  .first-time-section .onboarding-steps {
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  .first-time-section .step-connector {
+    display: none;
+  }
+
+  /* Fitness cards: 3 → 2 columns */
+  .directions-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+
+  /* Timetable: scrollable with helpful sizing */
+  .timetable-grid {
+    grid-template-columns: 50px repeat(7, minmax(110px, 1fr));
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding: 10px;
+    gap: 3px;
+  }
+
+  .timetable-header {
+    font-size: 12px;
+    padding: 8px 2px;
+  }
+
+  .timetable-time {
+    font-size: 12px;
+  }
+
+  .timetable-cell {
+    padding: 10px 6px;
+  }
+
+  .class-title {
+    font-size: 11px;
+  }
+
+  .class-trainer {
+    font-size: 10px;
+  }
+
+  /* Subscription grid: 2 columns maintained */
+  .subscription-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .subscription-card {
+    padding: 12px 8px 16px 8px;
+  }
+
+  .subscription-card-title {
+    font-size: 14px;
+  }
+
+  .subscription-card-price {
+    font-size: 20px;
+  }
+
+  .subscription-helper-card {
+    min-height: auto;
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .subscription-helper-card p {
+    font-size: 13px;
+  }
+
+  /* Pricing blocks */
+  .pricing-block,
+  .pricing-block1 {
+    min-height: auto;
+    padding: 12px 10px;
+  }
+
+  .pricing-content-3col {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-col-first,
+  .pricing-block-bordered {
+    border-right: none;
+    border-bottom: 1px solid #ede0d4;
+  }
+
+  .pricing-right-content {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-block.special-bg {
+    border-right: none;
+    border-bottom: 1px solid #ede0d4;
+  }
+
+  .pricing-block.special-bg:last-child {
+    border-bottom: none;
+  }
+
+  /* Extra services: 2 → 1 column */
+  .extra-services-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* Reviews: 2 → 1 column */
+  .reviews-list {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .slider-nav-btn {
+    display: none;
+  }
+
+  /* Footer: single column */
+  .footer-container {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 25px 20px;
+  }
+
+  .footer-logo {
+    grid-column: 1;
+    text-align: center;
+  }
+
+  .footer-contacts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .contact-item {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .contact-icon {
+    margin-top: 0;
+  }
+
+  .footer-phone {
+    font-size: 20px;
+  }
+
+  .footer-map {
+    height: 250px;
+  }
+
+  .footer-socials {
+    justify-content: center;
+  }
+}
+
+/* ── MOBILE LARGE ≤ 576px ───────────────────────────────── */
+@media (max-width: 576px) {
+
+  /* Section padding tight */
+  .section-container {
+    padding: 0 15px;
+  }
+
+  /* Section headers */
+  .section-header {
+    gap: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .section-header h2 {
+    font-size: 18px;
+  }
+
+  /* Hero */
+  .hero-section {
+    min-height: auto;
+  }
+
+  .hero-content {
+    padding: 25px 15px;
+  }
+
+  .hero-photo-wrapper {
+    height: 240px;
+  }
+
+  .text-black {
+    font-size: 34px;
+    letter-spacing: -0.5px;
+  }
+
+  .text-orange {
+    font-size: 30px;
+    letter-spacing: -0.5px;
+  }
+
+  .text-cursive {
+    font-size: 24px;
+  }
+
+  .hero-subtitle {
+    font-size: 13px;
+    margin-bottom: 25px;
+  }
+
+  .hero-features-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 25px;
+  }
+
+  .hero-feature-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .hero-feature-item p {
+    font-size: 11px;
+  }
+
+  .offer-cards-wrapper {
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 25px;
+  }
+
+  .offer-card {
+    padding: 14px;
+  }
+
+  .offer-card-title {
+    font-size: 14px;
+  }
+
+  .offer-card-price {
+    font-size: 20px;
+  }
+
+  .hero-buttons-row {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    justify-content: center;
+    width: 100%;
+    padding: 13px 20px;
+    font-size: 13px;
+  }
+
+  /* Benefits: 2 → 1 column */
+  .advantages-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .advantage-card {
+    padding: 16px 14px;
+  }
+
+  /* Onboarding */
+  .first-time-section .onboarding-container {
+    padding: 0 15px;
+  }
+
+  .first-time-section .onboarding-steps {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .first-time-section .step-index {
+    min-width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .first-time-section .step-body h3 {
+    font-size: 13px;
+  }
+
+  .first-time-section .step-body p {
+    font-size: 12px;
+  }
+
+  /* Fitness cards: 2 → 1 column */
+  .directions-list {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .fitness-card {
+    min-width: 0;
+  }
+
+  /* Timetable: force horizontal scroll */
+  .timetable-grid {
+    grid-template-columns: 45px repeat(7, minmax(100px, 1fr));
+    font-size: 11px;
+  }
+
+  .timetable-header,
+  .timetable-cell,
+  .weekend-slot {
+    min-width: 100px;
+  }
+
+  .timetable-time {
+    font-size: 11px;
+  }
+
+  /* Subscription grid: 2 → 1 column */
+  .subscription-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .subscription-card {
+    padding: 14px 12px 18px;
+  }
+
+  .subscription-card-title {
+    font-size: 15px;
+  }
+
+  .subscription-card-price {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .subscription-helper-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 16px;
+    min-height: auto;
+  }
+
+  .subscription-helper-card p {
+    font-size: 13px;
+  }
+
+  /* Pricing divider text */
+  .pricing-divider-text {
+    font-size: 13px;
+  }
+
+  /* Pricing tabs */
+  .pricing-tabs {
+    border-radius: 10px;
+  }
+
+  .pricing-tabs-nav {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-tab {
+    font-size: 12px;
+    padding: 10px 8px;
+    border-right: none;
+    border-bottom: 1px solid #ede0d4;
+  }
+
+  .pricing-tab:last-child {
+    border-bottom: none;
+  }
+
+  .pricing-block-title {
+    font-size: 12px;
+  }
+
+  .pricing-block-description {
+    font-size: 10px;
+    min-height: auto;
+  }
+
+  .pricing-block-note {
+    font-size: 9px;
+  }
+
+  .price-item span {
+    font-size: 9px;
+  }
+
+  .price-item strong {
+    font-size: 12px;
+  }
+
+  /* Extra services */
+  .extra-service-card {
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .extra-service-icon {
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+  }
+
+  .extra-service-body h3 {
+    font-size: 14px;
+  }
+
+  .extra-service-body p {
+    font-size: 12px;
+  }
+
+  /* Reviews */
+  .review-item {
+    padding: 18px 16px;
+    gap: 12px;
+  }
+
+  .reviewer-avatar {
+    width: 55px;
+    height: 55px;
+    min-width: 55px;
+  }
+
+  .reviewer-name {
+    font-size: 14px;
+  }
+
+  .reviewer-rating {
+    font-size: 12px;
+  }
+
+  .reviewer-comment {
+    font-size: 12px;
+  }
+
+  /* Footer */
+  .footer-container {
+    padding: 20px 15px;
+    gap: 20px;
+  }
+
+  .footer-contacts h3 {
+    font-size: 20px;
+    margin-bottom: 18px;
+  }
+
+  .footer-phone {
+    font-size: 18px;
+  }
+
+  .footer-address {
+    font-size: 13px;
+  }
+
+  .footer-map {
+    height: 200px;
+    border-radius: 12px;
+  }
+
+  .footer-bottom {
+    padding: 15px;
+    font-size: 12px;
+  }
+
+  .social-btn {
+    width: 38px;
+    height: 38px;
+  }
+
+  .social-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Pricing section padding */
+  .pricing-section {
+    padding: 25px 0;
+  }
+
+  .schedule-section {
+    padding: 25px 0;
+  }
+}
+
+/* ── MOBILE SMALL ≤ 400px ───────────────────────────────── */
+@media (max-width: 400px) {
+
+  /* Even tighter padding */
+  .section-container {
+    padding: 0 10px;
+  }
+
+  .section-header h2 {
+    font-size: 16px;
+  }
+
+  .section-header {
+    gap: 8px;
+  }
+
+  /* Header */
+  .site-header {
+    padding: 10px 10px;
+  }
+
+  .logo-img {
+    max-height: 36px;
+  }
+
+  .phone-number {
+    font-size: 12px;
+  }
+
+  .cta-button {
+    padding: 5px 10px;
+    font-size: 10px;
+    gap: 5px;
+  }
+
+  /* Hero */
+  .hero-content {
+    padding: 20px 10px;
+  }
+
+  .hero-photo-wrapper {
+    height: 200px;
+  }
+
+  .text-black {
+    font-size: 28px;
+  }
+
+  .text-orange {
+    font-size: 26px;
+  }
+
+  .text-cursive {
+    font-size: 20px;
+  }
+
+  .hero-subtitle {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .hero-features-row {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .hero-feature-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hero-feature-item p {
+    font-size: 10px;
+  }
+
+  .offer-cards-wrapper {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .offer-card {
+    padding: 12px;
+    gap: 10px;
+    border-radius: 10px;
+  }
+
+  .offer-icon-circle {
+    width: 32px;
+    height: 32px;
+    padding: 6px;
+  }
+
+  .offer-card-title {
+    font-size: 13px;
+  }
+
+  .offer-card-accent {
+    font-size: 11px;
+  }
+
+  .offer-card-description {
+    font-size: 10px;
+  }
+
+  .offer-card-price {
+    font-size: 18px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 11px 16px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+
+  /* Benefits */
+  .advantage-card {
+    padding: 14px 12px;
+    gap: 10px;
+    border-radius: 10px;
+  }
+
+  .advantage-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .advantage-content h3 {
+    font-size: 13px;
+  }
+
+  .advantage-content p {
+    font-size: 12px;
+  }
+
+  /* Onboarding */
+  .first-time-section .onboarding-container {
+    padding: 0 10px;
+  }
+
+  .first-time-section .onboarding-steps {
+    padding: 12px;
+    gap: 12px;
+    border-radius: 10px;
+  }
+
+  .first-time-section h2 {
+    font-size: 18px;
+  }
+
+  /* Fitness cards */
+  .card-image-placeholder {
+    height: 130px;
+  }
+
+  .card-content {
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .card-title {
+    font-size: 13px;
+  }
+
+  .card-description {
+    font-size: 11px;
+  }
+
+  /* Timetable */
+  .timetable-grid {
+    grid-template-columns: 40px repeat(7, minmax(90px, 1fr));
+    padding: 8px;
+    gap: 2px;
+    border-radius: 10px;
+  }
+
+  .timetable-header {
+    font-size: 11px;
+    padding: 6px 2px;
+  }
+
+  .class-title {
+    font-size: 10px;
+    margin-bottom: 4px;
+  }
+
+  .class-trainer {
+    font-size: 9px;
+  }
+
+  .timetable-cell {
+    padding: 8px 4px;
+    border-radius: 6px;
+  }
+
+  /* Subscription */
+  .subscription-card {
+    padding: 12px 10px 16px;
+    border-radius: 10px;
+  }
+
+  .subscription-card-badge {
+    font-size: 8px;
+    padding: 3px 6px;
+  }
+
+  .subscription-card-title {
+    font-size: 13px;
+  }
+
+  .subscription-card-subtitle {
+    font-size: 10px;
+  }
+
+  .subscription-card-price {
+    font-size: 18px;
+  }
+
+  .btn-select {
+    font-size: 11px;
+    padding: 7px 0;
+  }
+
+  .subscription-helper-card {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .helper-heart-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .subscription-helper-card p {
+    font-size: 12px;
+  }
+
+  /* Pricing */
+  .pricing-divider-text {
+    font-size: 12px;
+    margin-bottom: 15px;
+  }
+
+  .pricing-tabs {
+    border-radius: 8px;
+  }
+
+  .pricing-block,
+  .pricing-block1 {
+    padding: 10px 8px;
+  }
+
+  .pricing-block-title {
+    font-size: 11px;
+    margin-bottom: 8px;
+  }
+
+  .pricing-block-description {
+    font-size: 9px;
+    margin-bottom: 8px;
+  }
+
+  .price-list {
+    gap: 2px;
+  }
+
+  .price-item span {
+    font-size: 8px;
+  }
+
+  .price-item strong {
+    font-size: 11px;
+  }
+
+  .pricing-block-note {
+    font-size: 8px;
+  }
+
+  .pricing-footnote {
+    font-size: 10px;
+  }
+
+  /* Extra services */
+  .extra-service-card {
+    padding: 14px;
+    gap: 12px;
+    border-radius: 10px;
+  }
+
+  .extra-service-icon {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+  }
+
+  .extra-service-body h3 {
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+
+  .extra-service-body p {
+    font-size: 11px;
+  }
+
+  /* Reviews */
+  .review-item {
+    padding: 14px 12px;
+    gap: 10px;
+    border-radius: 10px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .reviewer-avatar {
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+  }
+
+  .reviewer-name {
+    font-size: 13px;
+  }
+
+  .reviewer-rating {
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .reviewer-comment {
+    font-size: 11px;
+  }
+
+  /* Footer */
+  .footer-container {
+    padding: 15px 10px;
+    gap: 18px;
+  }
+
+  .footer-logo img {
+    max-width: 160px;
+  }
+
+  .footer-contacts h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .footer-phone {
+    font-size: 16px;
+  }
+
+  .footer-address {
+    font-size: 12px;
+  }
+
+  .footer-map {
+    height: 180px;
+    border-radius: 10px;
+  }
+
+  .footer-bottom {
+    padding: 12px 10px;
+    font-size: 11px;
+  }
+
+  .footer-socials {
+    gap: 8px;
+    margin-top: 20px;
+  }
+
+  .social-btn {
+    width: 34px;
+    height: 34px;
+  }
+
+  .social-btn svg {
+    width: 16px;
+    height: 16px;
+  }
 }
