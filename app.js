@@ -4,4 +4,7 @@ if (list) {
     e.preventDefault();
     list.scrollLeft += e.deltaX || e.deltaY;
   }, { passive: false });
-}
+}
+
+
+

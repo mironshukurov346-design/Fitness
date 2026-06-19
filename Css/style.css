@@ -54,6 +54,14 @@ body {
   transition: transform 0.3s ease;
 }
 
+.line-top,
+.line-bottom,
+.line-main {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
 .main-nav ul {
   list-style: none;
   display: flex;
@@ -1756,11 +1764,9 @@ body {
   .menu-toggle.active .line-main { opacity: 0; }
   .menu-toggle.active .line-top {
     transform: translateY(6px) rotate(45deg);
-    transform-origin: center;
   }
   .menu-toggle.active .line-bottom {
     transform: translateY(-6px) rotate(-45deg);
-    transform-origin: center;
   }
 
   /* Section headers */
